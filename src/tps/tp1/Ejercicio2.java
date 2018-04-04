@@ -1,6 +1,7 @@
 package tps.tp1;
 
 import api.PilaTDA;
+import implementaciones.arreglos.PilaTF;
 import utilidades.Metodos;
 
 public class Ejercicio2 {
@@ -11,10 +12,12 @@ public class Ejercicio2 {
 		copia.InicializarPila();
 		o.Apilar(1);
 		o.Apilar(2);
-		o.Apilar(3)
-		Metodos.copiarPilaPila(o,copia);
-		Metodos.pasarPilaPila(copia,o);
-		while(!d.PilaVacia()) {
-			System.out.println();		}
+		o.Apilar(3);
+		Metodos.CopiarPila(o,copia);
+		Metodos.PasarPila(copia,o);
+		Metodos.ContarPila(o);
+		/*while(!d.PilaVacia()) {
+			System.out.println();		
+		}*/
 	}
 }
