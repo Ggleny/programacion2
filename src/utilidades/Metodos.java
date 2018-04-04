@@ -2,16 +2,18 @@ package utilidades;
 
 import api.ColaTDA;
 import api.PilaTDA;
+import implementaciones.arreglos.ColaPI;
+import implementaciones.arreglos.ColaPU;
 import implementaciones.arreglos.PilaTF;
 
 public class Metodos {
 	/**
 	 * @#PasarPila
-	 * @Tarea: Pasa los datos de la pila origen a la pila destino.
+	 * @Tarea: Pasa los elementos de la pila origen a la pila destino.
 	 * @Parametros: Se reciben dos pilas de tipo PilaTDA.
 	 * @Devuelve: -
 	 * @Precondicion: Las pilas deben estar inicializadas
-	 * @Postcondicion: La pila destino tiene los elementos de la pila origen
+	 * @Postcondicion: La pila destino tiene los elementos de la pila origen y la pila origen queda vacia
 	 */
 	public static void PasarPila(PilaTDA origen, PilaTDA destino){
 		while(!origen.PilaVacia()){
@@ -22,7 +24,7 @@ public class Metodos {
 	
 	/**
 	 * @#CopiarPila
-	 * @Tarea: Copia los datos de la pila origen a la pila destino, sin vaciar la pila origen.
+	 * @Tarea: Copia los elementos de la pila origen a la pila destino, sin modificar la pila origen.
 	 * @Parametros: Se reciben dos pilas de tipo PilaTDA.
 	 * @Devuelve: -
 	 * @Precondicion: Las pilas deben estar inicializadas
@@ -144,11 +146,67 @@ public class Metodos {
 		c.Acolar(x);
 	}
 	
+	/**
+	 * @#PasarCola
+	 * @Tarea: Pasa los elementos de la cola origen a la cola destino.
+	 * @Parametros: Se reciben dos pilas de tipo PilaTDA.
+	 * @Devuelve: -
+	 * @Precondicion: Las colas deben estar inicializadas
+	 * @Postcondicion: La cola destino tiene los elementos de la cola origen y la cola origen queda vacia.
+	 */
+	public static void PasarCola(ColaTDA origen, ColaTDA destino) {
+		while(!origen.ColaVacia()) {
+			destino.Acolar(origen.Primero());
+			destino.Desencolar();
+		}
+	}
 	
+	/**
+	 * @#CopiarCola
+	 * @Tarea: Copia los elementos de la cola origen a la cola destino, manteniendo la cola origen sin cambios.
+	 * @Parametros: Se reciben dos pilas de tipo PilaTDA.
+	 * @Devuelve: -
+	 * @Precondicion: Las pilas deben estar inicializadas
+	 * @Postcondicion: Las dos pilas tienen los mismos elementos.
+	 */
+	public static void CopiarCola(ColaTDA origen, ColaTDA destino){
+		ColaTDA auxiliar = new ColaPI();
+		auxiliar.InicializarCola();
+		PasarCola(origen, destino);
+		while(!auxiliar.ColaVacia()){
+			origen.Acolar(auxiliar.Primero());
+			destino.Acolar(auxiliar.Primero());
+			auxiliar.Desencolar();
+		}
+	}
 	
-	
-	/*public static void PasarCola(ColaTDA o,ColaTDA d) {
-		ColaTDA aux = new Cola
-		aux
-	}*/
+	/**
+	 * @#ColaInversa
+	 * @Tarea: Determinar si la Cola cola1 es inversa de la cola2 
+	 * 		   es decir que tengan los mismos elementos pero en orden inverso.
+	 * @Parametros: Se reciben dos colas de tipo ColaTDA.
+	 * @Devuelve: un boleano que determina si cola1 es inversa de cola2.
+	 * @Precondicion: Las colas deben estar inicializadas
+	 * @Postcondicion: -.
+	 */
+	public static boolean ColaInversa(ColaTDA cola1, ColaTDA cola2){
+		ColaTDA auxiliarCola1, auxiliarCola2;
+		auxiliarCola1 = new ColaPU();
+		auxiliarCola2 = new ColaPU();
+		auxiliarCola1.InicializarCola();
+		auxiliarCola2.InicializarCola();
+		CopiarCola(cola1, auxiliarCola1);
+		CopiarCola(cola2, auxiliarCola2);
+		InvertirCola(auxiliarCola2);
+		boolean resultado = true;
+		
+		while(resultado && !auxiliarCola1.ColaVacia() && !auxiliarCola2.ColaVacia()) {
+			if(auxiliarCola1.Primero()!=auxiliarCola2.Primero()) {
+				resultado = false;
+			}
+			auxiliarCola1.Desencolar();
+			auxiliarCola2.Desencolar();
+		}
+		return (auxiliarCola1.ColaVacia()  && auxiliarCola2.ColaVacia() && resultado);
+	}
 }
