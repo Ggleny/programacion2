@@ -10,10 +10,14 @@ public class DicSimpleA implements DiccionarioSimpleTDA {
 	}
 	Elemento[] elementos;
 	int cant;
-	/* (non-Javadoc)
-	 * Se recorren las claves del diccionario de atras para adelante
-	 * @retorna: la posicion del clave si existe y sino existe retorna -1;
-	 * @preCondicion: El diccionario debe estar inicializado
+	
+	/**
+	 * @#obtenerIndiceDeClave
+	 * @Tarea: dada una clave se busca su posicion 
+	 * @Parametros: se recibe una clave
+	 * @Devuelve: se devuelve la posicion de la clave si existe, y sino existe se devuelve -1
+	 * @Precondicion: El diccionario debe estar inicializado
+	 * @Postcondicion: -
 	 */
 	private int obtenerIndiceDeClave(int clave) {
 		int i = cant - 1;
@@ -76,6 +80,14 @@ public class DicSimpleA implements DiccionarioSimpleTDA {
 		return conjuntoClaves;
 	}
 	
+	/**
+	 * @#mostrar
+	 * @Tarea: muestra por consola las claves con sus respectivos valores
+	 * @Parametros: -
+	 * @Devuelve: -
+	 * @Precondicion: El diccionario debe estar inicializado
+	 * @Postcondicion: -
+	 */
 	public void mostrar() {
 		for(int i=0; i<cant; i++) {
 			System.out.println("Clave: "+elementos[i].clave+" =>Valor: "+elementos[i].valor); 
