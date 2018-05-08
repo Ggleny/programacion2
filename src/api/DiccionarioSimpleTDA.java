@@ -1,51 +1,55 @@
 package api;
 
 public interface DiccionarioSimpleTDA {
+
 	/**
 	 * @#InicializarDiccionario
-	 * @Tarea: permite inicializar la estructura del diccionario
+	 * @Tarea: Inicializa un Diccionario.
 	 * @Parametros: -
 	 * @Devuelve: -
 	 * @Precondicion: -
-	 * @Postcondicion: El diccionario se encuentra inicializado
-	 */
-	void InicializarDiccionario ();
+	 * @Postcondicion: Se tiene un diccionario inicilizado
+	 */	
+	void InicializarDiccionario();
+
 	/**
 	 * @#Agregar
-	 * @Tarea: : dada una clave y un valor, agrega al diccionario el valor quedando asociado a la clave
-	 * @Parametros: Se recibe una clave que será agregado en el diccionario
+	 * @Tarea: Agrega un elemento al diccionario si éste no existe, o lo modifica si ya existe
+	 * @Parametros: Recibe dos enteros: uno con la clave identificatoria y otro con el valor correspondiente
 	 * @Devuelve: -
 	 * @Precondicion: El diccionario debe estar inicializado
-	 * @Postcondicion: El diccionario tiene un elemento más.
-	 */
-	void Agregar(int clave,int valor);
+	 * @Postcondicion: El diccionario tiene un elemento mas que antes
+	 */	
+	void Agregar(int clave, int valor);
 	
 	/**
 	 * @#Eliminar
-	 * @Tarea: dada una clave elimina el valor asociado a la clave
-	 * @Parametros: Se recibe una clave
+	 * @Tarea: Elimina un elemento del diccionario
+	 * @Parametros: Recibe un entero correspondiente a la clave del elemento que se quiere eliminar
 	 * @Devuelve: -
-	 * @Precondicion: El diccionario debe estar inicializado.
-	 * @Postcondicion: El diccionario tiene un elemento menos.
-	 */
-	void Eliminar( int clave);
+	 * @Precondicion: El diccionario debe estar inicializado y tener, al menos, un elemento
+	 * @Postcondicion: El diccionario tiene un elemento menos que antes
+	 */	
+	void Eliminar(int clave);
+
 	/**
 	 * @#Recuperar
-	 * @Tarea: dada una clave devuelve el valor asociado a la clave
-	 * @Parametros: Se recibe una clave
-	 * @Devuelve: valor asociado a la clave.
-	 * @Precondicion: El diccionario debe estar inicializado y la clave debe existir en el diccionario
+	 * @Tarea: Devuelve el valor asociado a una clave dada
+	 * @Parametros: Recibe un entero correspondiente a la clave del elemento que se quiere recuperar
+	 * @Devuelve: Un entero correspondiente al valor asociado a la clave buscada
+	 * @Precondicion: El diccionario debe estar inicializado y la clave debe existir dentro de éste
 	 * @Postcondicion: -
-	 */
-	int Recuperar( int clave);
-	
+	 */	
+	int Recuperar(int clave);
+
 	/**
 	 * @#Claves
-	 * @Tarea: Coonjunto de claves pertenecientes al diccionario
+	 * @Tarea: Devuelve un conjunto con todas las claves en un diccionario
 	 * @Parametros: -
-	 * @Devuelve: -
-	 * @Precondicion: El diccionario debe estar inicializado.
+	 * @Devuelve: Un conjunto conteniendo todas las claves en el diccionario
+	 * @Precondicion: El diccionario debe estar inicializado
 	 * @Postcondicion: -
-	 */
+	 */	
 	ConjuntoTDA Claves();
+
 }

@@ -1,38 +1,42 @@
 package api;
 
+/**
+ * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
+ * @definition: Coleccion de datos tal que el primero en entrar es el ultimo en salir
+ */
 public interface PilaTDA {
+	
 	/**
 	 * @#InicializarPila
-	 * @Tarea: crea un vector de 100 enteros y setea la cantidad de elementos a 0
-	 * @Parametros: 
+	 * @Tarea: Inicializa la pila
+	 * @Parametros: -
 	 * @Devuelve: -
 	 * @Precondicion: -
 	 * @Postcondicion: Se tiene una pila inicilizada
 	 */
-	void InicializarPila();
-	
+	void InicializarPila () ;
 
 	/**
 	 * @#Apilar
-	 * @Tarea: Agrega un numero entero a la pila
-	 * @Parametros: Se recibe un numero entero que ser· agregado en la pila
+	 * @Tarea: Agrega un elemento a la pila
+	 * @Parametros: Se recibe un numero entero a ser agregado en la pila
 	 * @Devuelve: -
 	 * @Precondicion: La pila debe estar inicializada
-	 * @Postcondicion: La pila tiene un elemento m·s que antes
+	 * @Postcondicion: La pila tiene un elemento m√°s que antes
 	 */
-	
 	void Apilar(int x);
-	
+
+
 	/**
 	 * @#Desapilar
-	 * @Tarea: Elimina un numero entero de la pila
+	 * @Tarea: Elimina un elemento de la pila
 	 * @Parametros: -
 	 * @Devuelve: -
 	 * @Precondicion: La pila debe estar inicializada y tener al menos un elemento
 	 * @Postcondicion: La pila tiene un elemento menos que antes
 	 */
-	void Desapilar();
-	
+	void Desapilar() ;
+
 	/**
 	 * @#PilaVacia
 	 * @Tarea: Verifica si la pila tiene elementos o no
@@ -41,8 +45,8 @@ public interface PilaTDA {
 	 * @Precondicion: La pila debe estar inicializada
 	 * @Postcondicion: -
 	 */
-	boolean PilaVacia();
-	
+	boolean PilaVacia ();
+
 	/**
 	 * @#Tope
 	 * @Tarea: Devuelve el numero entero que haya sido agregado ultimo a la pila
@@ -51,5 +55,7 @@ public interface PilaTDA {
 	 * @Precondicion: La pila debe estar inicializada y no estar vacia
 	 * @Postcondicion: -
 	 */
-	int Tope ();
+	int Tope () ;
+
+	
 }

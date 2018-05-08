@@ -1,62 +1,69 @@
 package api;
 
+/**
+ * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
+ * @definition: Coleccion de datos sin un orden definido
+ */
 public interface ConjuntoTDA {
+
 	/**
-	 * @#InicializarConjunto
-	 * @Tarea: permite inicializar la estructura del conjunto
+	 * @#Inicializar
+	 * @Tarea: Inicializar un conjunto.
 	 * @Parametros: -
 	 * @Devuelve: -
 	 * @Precondicion: -
-	 * @Postcondicion: El conjunto se encuentra inicializado
-	 */
-	void InicializarConjunto ();
-	
-	/**
-	 * @#ConjuntoVacio
-	 * @Tarea: indica si el conjunto contiene elementos o no.
-	 * @Parametros: -
-	 * @Devuelve: Verdadero si el conjunto no tiene elementos; Falso en caso contrario
-	 * @Precondicion: El conjunto debe  estar inicializado
-	 * @Postcondicion: -
-	 */
-	boolean ConjuntoVacio() ;
-	
+	 * @Postcondicion: Se tiene un conjunto inicilizado
+	 */	
+	void Inicializar();
+
 	/**
 	 * @#Agregar
-	 * @Tarea: Permite agregar un elemento al conjunto
-	 * @Parametros: Se recibe un  entero que será agregado en el conjunto
+	 * @Tarea: Agregar un elemento al conjunto
+	 * @Parametros: Se recibe un numero entero a ser agregado en el conjunto
 	 * @Devuelve: -
 	 * @Precondicion: El conjunto debe estar inicializado
-	 * @Postcondicion: El conjunto tiene un elemento más que antes
+	 * @Postcondicion: El conjunto tiene un elemento mas que antes
 	 */
-	void Agregar( int x);
-	
-	/**
-	 * @#Elegir
-	 * @Tarea: devuelve un elemento cualquiera del conjunto.
-	 * @Parametros: -
-	 * @Devuelve: Un elemento cualquiera del conjunto.
-	 * @Precondicion: El conjunto debe estar inicializado y no debe ser vacio.
-	 * @Postcondicion: -
-	 */
-	int Elegir();
-	
+	 void Agregar(int x);
+
 	/**
 	 * @#Sacar
-	 * @Tarea: permite eliminar del conjunto un elemento dado.
-	 * @Parametros: -
+	 * @Tarea: Eliminar un elemento del conjunto
+	 * @Parametros: Un elemento de tipo entero correspondiente al elemento que se quiere sacar
 	 * @Devuelve: -
-	 * @Precondicion: El conjunto debe estar inicializado y no debe ser vacio.
+	 * @Precondicion: El conjunto debe estar inicializado y tener al menos un elemento
+	 * @Postcondicion: El conjunto tiene un elemento menos que antes
+	 */
+	 void Sacar(int x);
+
+	/**
+	 * @#Elegir
+	 * @Tarea: Elige un elemento del conjunto
+	 * @Parametros: -
+	 * @Devuelve: Un entero correspondiente al ultimo elemento del conjunto
+	 * @Precondicion: El conjunto debe estar inicializado
 	 * @Postcondicion: -
 	 */
-	void Sacar( int x);
+	 int Elegir();
+
 	/**
 	 * @#Pertenece
-	 * @Tarea:  permite conocer si un elemento dado se encuentra en el conjunto.
-	 * @Parametros: Se recibe un entero
-	 * @Devuelve: Un Booleano que indica si se encuentra el elemento en el conjunto.
-	 * @Precondicion: El conjunto debe estar inicializado.
+	 * @Tarea: Verifica si un elemento esta contenido en el conjunto
+	 * @Parametros: Un elemento de tipo entero a ser verificado
+	 * @Devuelve: Verdadero si el elemento existe en el conjunto; falso si no
+	 * @Precondicion: El conjunto debe estar inicializado y no estar vacio
 	 * @Postcondicion: -
 	 */
-	boolean Pertenece( int x);
+	boolean Pertenece(int x);
+
+	/**
+	 * @#ConjuntoVacio
+	 * @Tarea: Permite saber si hay o no elementos en un conjunto
+	 * @Parametros: -
+	 * @Devuelve: Verdadero si el conjunto esta vacio; falso si no
+	 * @Precondicion: El conjunto debe estar inicializado
+	 * @Postcondicion: -
+	 */
+	boolean ConjuntoVacio();
+
 }

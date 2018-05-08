@@ -1,49 +1,56 @@
 package api;
 
+/**
+ * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
+ * @definition: Coleccion de datos tal que el primero en entrar es el primero en salir
+ */
 public interface ColaTDA {
+
 	/**
 	 * @#InicializarCola
-	 * @Tarea: crea un vector de enteros
-	 * @Parametros: 
+	 * @Tarea: Inicializar una cola
+	 * @Parametros: -
 	 * @Devuelve: -
 	 * @Precondicion: -
 	 * @Postcondicion: Se tiene una cola inicilizada
-	 */
+	 */	
 	void InicializarCola();
+
 	/**
 	 * @#Acolar
-	 * @Tarea:permite agregar un elemento a la cola.
-	 * @Parametros: Se recibe un numero entero que ser· agregado en la cola
+	 * @Tarea: Agrega un elemento a la cola
+	 * @Parametros: Se recibe un numero entero a ser agregado en la cola
 	 * @Devuelve: -
 	 * @Precondicion: La cola debe estar inicializada
-	 * @Postcondicion: La cola tiene un elemento m·s que antes
+	 * @Postcondicion: La cola tiene un elemento m√°s que antes
 	 */
-	void Acolar(int x);
-	
+	 void Acolar( int x);
+
 	/**
 	 * @#Desacolar
-	 * @Tarea: Elimina un numero entero de la cola
+	 * @Tarea: Elimina un elemento de la cola
 	 * @Parametros: -
 	 * @Devuelve: -
 	 * @Precondicion: La cola debe estar inicializada y tener al menos un elemento
 	 * @Postcondicion: La cola tiene un elemento menos que antes
 	 */
-	void Desencolar();
-	
+	 void Desacolar();
+
 	/**
-	 * @#colaVacia
+	 * @#ColaVacia
 	 * @Tarea: Verifica si la cola tiene elementos o no
 	 * @Parametros: -
 	 * @Devuelve: Verdadero si la cola no tiene elementos; Falso en caso contrario
 	 * @Precondicion: La cola debe estar inicializada
 	 * @Postcondicion: -
 	 */
-	boolean ColaVacia();
+	 boolean ColaVacia();
+
 	/**
 	 * @#Primero
-	 * @Tarea: Devuelve el numero entero que haya sido agregado primero a la cola
+	 * @Tarea: Devuelve el numero entero que se encuentre en la 1er posicion de la cola
 	 * @Parametros: -
-	 * @Devuelve: Un numero entero correspondiente al primer elemento agregado a la cola
+	 * @Devuelve: Un numero entero correspondiente al primer elemento de la cola
 	 * @Precondicion: La cola debe estar inicializada y no estar vacia
 	 * @Postcondicion: -
 	 */
