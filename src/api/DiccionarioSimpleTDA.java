@@ -9,7 +9,7 @@ public interface DiccionarioSimpleTDA {
 	 * @Precondicion: -
 	 * @Postcondicion: El diccionario se encuentra inicializado
 	 */
-	void InicializarDiccionario () ;
+	void InicializarDiccionario ();
 	/**
 	 * @#Agregar
 	 * @Tarea: : dada una clave y un valor, agrega al diccionario el valor quedando asociado a la clave
