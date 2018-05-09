@@ -557,12 +557,13 @@ public class Metodos {
 	 * @Postcondicion: -
 	 * @Costo: Polinomica, pues tiene varias iteraciones consecutivas mas no anidadas
 	 */	
-	public static ConjuntoTDA Unio(ConjuntoTDA conjunto1,ConjuntoTDA conjunto2){
+	public static ConjuntoTDA Union(ConjuntoTDA conjunto1,ConjuntoTDA conjunto2){
 		ConjuntoTDA conjunion = new ConjuntoTA();
 		conjunion.Inicializar();
 		ConjuntoTDA caux = new ConjuntoTA();
 		caux.Inicializar();
 		CopiarConjunto(conjunto1,conjunion);
+		CopiarConjunto(conjunto2,caux);
 		
 	return conjunion;
 }

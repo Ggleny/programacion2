@@ -1,7 +1,7 @@
 package implementations.listas;
 
 import api.ColaPrioridadTDA;
-import api.NodoConPrioridad;
+import utilities.NodoConPrioridad;
 
 public class ColaPrioridadLD implements ColaPrioridadTDA {
 	NodoConPrioridad mayorPrioridad ;

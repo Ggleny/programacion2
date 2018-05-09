@@ -1,7 +1,7 @@
 package implementations.listas;
 
 import api.ColaTDA;
-import api.Nodo;
+import utilities.Nodo;
 
 public class ColaLD implements ColaTDA {
 	Nodo primero;
