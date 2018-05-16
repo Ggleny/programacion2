@@ -5,12 +5,11 @@ import utilities.NodoABB;
 
 public class ABB implements ABBTDA {
 	NodoABB raiz;
-	@Override
+	
 	public void InicializarArbol() {
 		raiz = null;
 	}
 
-	@Override
 	public void AgregarElemento(int x) {
 		if(raiz ==null){
 			raiz = new NodoABB();
@@ -27,8 +26,7 @@ public class ABB implements ABBTDA {
 		}
 
 	}
-
-	@Override
+	
 	public void EliminarElemento(int x) {
 		if(raiz!=null){
 			//Eel siguiente if es verdadero, si solo se agrego un elemento o si solo hay uno solo y es arbol. 
@@ -40,22 +38,18 @@ public class ABB implements ABBTDA {
 		}
 	}
 
-	@Override
 	public boolean ArbolVacio() {
 		return raiz ==null ;
 	}
-
-	@Override
+	
 	public int Raiz() {
 		return raiz.info;
 	}
-
-	@Override
+	
 	public ABBTDA HijoIzq() {
 		return raiz.HijoIzq;
 	}
-
-	@Override
+	
 	public ABBTDA HijoDer() {
 		return raiz.HijoDer;
 	}

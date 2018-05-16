@@ -3,42 +3,56 @@ package implementations.listas;
 import api.ConjuntoTDA;
 import utilities.Nodo;
 
+/**
+ * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
+ * @definition: Implementacion de Conjunto utilizando estructuras dinamicas.
+ */
+
 public class ConjuntoLD implements ConjuntoTDA {
 	Nodo conjunto;
-	@Override
+	
 	public void Inicializar() {
-		// TODO Auto-generated method stub
-
+		conjunto = null;
 	}
 
-	@Override
 	public void Agregar(int x) {
-		// TODO Auto-generated method stub
-
+		if (!this.Pertenece(x)){
+			Nodo auxiliar = new Nodo();
+			auxiliar.info = x;
+			auxiliar.siguiente = conjunto;
+			conjunto = auxiliar;
+		}
 	}
 
-	@Override
+	
 	public void Sacar(int x) {
-		// TODO Auto-generated method stub
-
+		if (conjunto != null){
+			if (conjunto.info == x){
+				conjunto = conjunto.siguiente;
+		    }
+		    else{
+			    Nodo auxiliar = conjunto;
+			    while ((auxiliar.siguiente != null) && (auxiliar.siguiente.info != x))
+				     auxiliar = auxiliar.siguiente;
+			    if (auxiliar.siguiente != null)
+				     auxiliar.siguiente = auxiliar.siguiente.siguiente;
+		   }
+		}
 	}
-
-	@Override
+	
 	public int Elegir() {
-		// TODO Auto-generated method stub
-		return 0;
+		return conjunto.info;
 	}
-
-	@Override
+	
 	public boolean Pertenece(int x) {
-		// TODO Auto-generated method stub
-		return false;
+		Nodo auxiliar = conjunto;
+		while((auxiliar != null) && (auxiliar.info != x))
+			auxiliar=auxiliar.siguiente;
+		return (auxiliar != null);
 	}
-
-	@Override
+	
 	public boolean ConjuntoVacio() {
-		// TODO Auto-generated method stub
-		return false;
+		return ( conjunto == null );
 	}
 
 }

@@ -2,21 +2,21 @@ package implementations.listas;
 
 import api.PilaTDA;
 import utilities.Nodo;
-
+/**
+ * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
+ * @definition: Implementacion de Pila, utilizando estructuras dinamicas, donde la estrategia es mantener un putero
+ * al tope de la pila.
+ */
 public class PilaLD implements PilaTDA {
 	
 	Nodo primero;
-	/* (non-Javadoc)
-	 * @see api.PilaTDA#InicializarPila()
-	 */
+
 	public void InicializarPila() {
 		primero = null;
 
 	}
 
-	/* (non-Javadoc)
-	 * @see api.PilaTDA#Apilar(int)
-	 */
+
 	public void Apilar(int valor) {
 		Nodo aux = new Nodo();
 		aux.info = valor;
@@ -24,23 +24,17 @@ public class PilaLD implements PilaTDA {
 		primero  = aux;
 	}
 
-	/* (non-Javadoc)
-	 * @see api.PilaTDA#Desapilar()
-	 */
+	
 	public void Desapilar() {
 		primero = primero.siguiente;
 	}
 
-	/* (non-Javadoc)
-	 * @see api.PilaTDA#PilaVacia()
-	 */
+	
 	public boolean PilaVacia() {
 		return primero==null;
 	}
 
-	/* (non-Javadoc)
-	 * @see api.PilaTDA#Tope()
-	 */
+
 	public int Tope() {
 		return primero.info;
 	}

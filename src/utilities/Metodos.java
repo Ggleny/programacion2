@@ -564,7 +564,38 @@ public class Metodos {
 		caux.Inicializar();
 		CopiarConjunto(conjunto1,conjunion);
 		CopiarConjunto(conjunto2,caux);
-		
-	return conjunion;
+		while (!caux.ConjuntoVacio()){
+			if(conjunion.Pertenece(caux.Elegir()))
+				conjunion.Agregar(caux.Elegir());
+			caux.Sacar(caux.Elegir());
+		}
+		return conjunion;
 }
+	
+	/**
+	 * @#Diferencia
+	 * @Tarea: Crea el conjunto diferencia entre dos conjuntos.
+	 * @Parametros: Se reciben dos elemento de tipo ConjuntoTDA.
+	 * @Devuelve: El conjunto Diferencia.
+	 * @Precondicion: Los conjuntos deben estar inicializados.
+	 * @Postcondicion: -
+	 * @Costo: Polinomica, pues tiene varias iteraciones consecutivas mas no anidadas
+	 */	
+	public static ConjuntoTDA Diferencia(ConjuntoTDA conjunto1,ConjuntoTDA conjunto2){
+		ConjuntoTDA conjdiferencia = new ConjuntoTA();
+		conjdiferencia.Inicializar();
+		ConjuntoTDA caux = new ConjuntoTA();
+		caux.Inicializar();
+		CopiarConjunto(conjunto1,conjdiferencia);
+		CopiarConjunto(conjunto2,caux);
+		while (!caux.ConjuntoVacio()){
+			if(conjdiferencia.Pertenece(caux.Elegir())){
+				conjdiferencia.Sacar(caux.Elegir());
+			}
+			caux.Sacar(caux.Elegir());
+		}
+		return conjdiferencia;
+}
+
+	
 }

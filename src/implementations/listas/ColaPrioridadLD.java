@@ -3,53 +3,51 @@ package implementations.listas;
 import api.ColaPrioridadTDA;
 import utilities.NodoConPrioridad;
 
+/**
+ * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
+ * @definition: Implementacion de Cola con Prioridad, utilizando estructuras dinamicas, donde la estrategia es modificar el nodo
+ * de una cola simple para que ademas contenga el valor de la prioridad.
+ */
+
 public class ColaPrioridadLD implements ColaPrioridadTDA {
 	NodoConPrioridad mayorPrioridad ;
 	
-	/* (non-Javadoc)
-	 * @see api.ColaPrioridadTDA#InicializarCola()
-	 */
 	public void InicializarCola() {
-		
+		mayorPrioridad= null;
 	}
-
-	/* (non-Javadoc)
-	 * @see api.ColaPrioridadTDA#AcolarPrioridad()
-	 */
+	
 	public void AcolarPrioridad(int x, int prioridad) {
-		// TODO Auto-generated method stub
-
+		NodoConPrioridad nuevo = new NodoConPrioridad();
+		nuevo.info = x;
+		nuevo.prioridad = prioridad;
+		if ( (mayorPrioridad == null) || (prioridad > mayorPrioridad.prioridad) ){
+			nuevo.siguiente = mayorPrioridad;
+			mayorPrioridad = nuevo;
+		}
+		else{
+			NodoConPrioridad aux = mayorPrioridad;
+			while ( (aux.siguiente != null) && (aux.siguiente.prioridad >= prioridad) ){
+				aux = aux.siguiente;
+			}
+			nuevo.siguiente = aux.siguiente;
+			aux.siguiente = nuevo;
+		}
 	}
-
-	/* (non-Javadoc)
-	 * @see api.ColaPrioridadTDA#Desacolar()
-	 */
+	
 	public void Desacolar() {
-		// TODO Auto-generated method stub
-
+		mayorPrioridad = mayorPrioridad.siguiente;
 	}
 
-	/* (non-Javadoc)
-	 * @see api.ColaPrioridadTDA#ColaVacia()
-	 */
 	public int Primero() {
-		// TODO Auto-generated method stub
-		return 0;
+		return mayorPrioridad.info;
 	}
-
-	/* (non-Javadoc)
-	 * @see api.ColaPrioridadTDA#ColaVacia()
-	 */
+	
 	public boolean ColaVacia() {
-		// TODO Auto-generated method stub
-		return false;
+		return (mayorPrioridad == null);
 	}
 
-	/* (non-Javadoc)
-	 * @see api.ColaPrioridadTDA#Prioridad()
-	 */
 	public int Prioridad() {
-		return 0;
+		return mayorPrioridad.prioridad;
 	}
 
 }
