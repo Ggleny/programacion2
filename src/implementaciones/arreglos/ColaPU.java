@@ -31,7 +31,7 @@ public class ColaPU implements ColaTDA {
 	/* (non-Javadoc)
 	 * @see api.ColaTDA#Desencolar()
 	 */
-	public void Desencolar() {
+	public void Desacolar() {
 		indice--;
 	}
 

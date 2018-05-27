@@ -10,7 +10,7 @@ public class ConjuntoUniversal implements ConjuntoTDA {
 	/* (non-Javadoc)
 	 * @see api.ConjuntoTDA#InicializarConjunto()
 	 */
-	public void InicializarConjunto() {
+	public void Inicializar() {
 		int i = 0;
 		array = new int[tamanio];
 		while(i<tamanio) {

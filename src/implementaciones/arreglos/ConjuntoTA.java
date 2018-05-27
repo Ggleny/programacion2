@@ -9,7 +9,7 @@ public class ConjuntoTA implements ConjuntoTDA{
 	/* (non-Javadoc)
 	 * @see api.ConjuntoTDA#InicializarConjunto()
 	 */
-	public void InicializarConjunto() {
+	public void Inicializar() {
 		array = new int[100];
 		cantidad = 0;
 		

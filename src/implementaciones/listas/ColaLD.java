@@ -39,7 +39,7 @@ public class ColaLD implements ColaTDA {
 	/* (non-Javadoc)
 	 * @see api.ColaTDA#Desacolar()
 	 */
-	public void Desencolar() {
+	public void Desacolar() {
 		//Consumo la cola, saco el primero.
 		primero = primero.siguiente;
 		//Si primer es null, entonces entonces, era el ultimo valor el q se desacolo

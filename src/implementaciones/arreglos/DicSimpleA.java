@@ -73,7 +73,7 @@ public class DicSimpleA implements DiccionarioSimpleTDA {
 	 */
 	public ConjuntoTDA Claves() {
 		ConjuntoTDA conjuntoClaves = new ConjuntoTA();
-		conjuntoClaves.InicializarConjunto();
+		conjuntoClaves.Inicializar();
 		for(int i=0; i<cant; i++) {
 			conjuntoClaves.Agregar(elementos[i].clave);
 		}

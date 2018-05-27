@@ -29,7 +29,7 @@ public class ColaPI implements ColaTDA {
 		/* (non-Javadoc)
 		 * @see api.ColaTDA#Desencolar()
 		 */
-		public void Desencolar() {
+		public void Desacolar() {
 			for(int i=0;i<indice-1;i++) {
 				a[i] = a[i+1];
 			}

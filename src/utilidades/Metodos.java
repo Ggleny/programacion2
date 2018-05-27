@@ -43,7 +43,7 @@ public class Metodos {
 	
 	/**
 	 * @#InvertirPila
-	 * @Tarea: Invierte la posición de los elementos de la pila.
+	 * @Tarea: Invierte la posiciï¿½n de los elementos de la pila.
 	 * @Parametros: Se recibe una pila de tipo PilaTDA.
 	 * @Devuelve: -
 	 * @Precondicion: La pila debe estar inicializada.
@@ -115,7 +115,7 @@ public class Metodos {
 	public static void PasarColaAPila(ColaTDA c,PilaTDA p) {
 		while(!c.ColaVacia()) {
 			p.Apilar(c.Primero());
-			c.Desencolar();
+			c.Desacolar();
 		}
 		
 	}
@@ -130,7 +130,7 @@ public class Metodos {
 	
 	/**
 	 * @#InvertirCola
-	 * @Tarea: Invierte la posición de los elementos de la cola.
+	 * @Tarea: Invierte la posiciï¿½n de los elementos de la cola.
 	 * @Parametros: Se recibe una cola de tipo ColaTDA.
 	 * @Devuelve: -
 	 * @Precondicion: La cola debe estar inicializada.
@@ -139,7 +139,7 @@ public class Metodos {
 	public static void InvertirCola(ColaTDA c) {
 		int x;
 		x = c.Primero();
-		c.Desencolar();
+		c.Desacolar();
 		if(!c.ColaVacia()) {
 			InvertirCola(c);
 		}
@@ -157,7 +157,7 @@ public class Metodos {
 	public static void PasarCola(ColaTDA origen, ColaTDA destino) {
 		while(!origen.ColaVacia()) {
 			destino.Acolar(origen.Primero());
-			destino.Desencolar();
+			destino.Desacolar();
 		}
 	}
 	
@@ -176,7 +176,7 @@ public class Metodos {
 		while(!auxiliar.ColaVacia()){
 			origen.Acolar(auxiliar.Primero());
 			destino.Acolar(auxiliar.Primero());
-			auxiliar.Desencolar();
+			auxiliar.Desacolar();
 		}
 	}
 	
@@ -204,8 +204,8 @@ public class Metodos {
 			if(auxiliarCola1.Primero()!=auxiliarCola2.Primero()) {
 				resultado = false;
 			}
-			auxiliarCola1.Desencolar();
-			auxiliarCola2.Desencolar();
+			auxiliarCola1.Desacolar();
+			auxiliarCola2.Desacolar();
 		}
 		return (auxiliarCola1.ColaVacia()  && auxiliarCola2.ColaVacia() && resultado);
 	}
