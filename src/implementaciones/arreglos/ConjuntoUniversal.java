@@ -43,9 +43,14 @@ public class ConjuntoUniversal implements ConjuntoTDA {
 	 * @see api.ConjuntoTDA#Elegir()
 	 */
 	public int Elegir() {
+		int i=0; boolean encontrado =false;
 		if(!this.ConjuntoVacio()) {
+			while (i<= tamanio && encontrado==false) {
+				if(array[i] == 1) encontrado=true;
+				i++;
+			}
 		}
-		return 0;
+		return i;
 	}
 
 	/* (non-Javadoc)
@@ -68,15 +73,4 @@ public class ConjuntoUniversal implements ConjuntoTDA {
 		return (elemento<=tamanio);
 	}
 	
-	/*int BuscarActivo(int inicio){
-		if(array[inicio]) {
-			return array[inicio] 
-		}else {
-			if(incio<cantidad) {
-				BuscarAc
-			}else
-				return 0;
-		}
-	}*/
-
 }
