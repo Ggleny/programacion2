@@ -1,7 +1,7 @@
 package tps;
 
 import api.ConjuntoTDA;
-import implementaciones.arreglos.ConjuntoUniversal;
+import implementations.arreglos.ConjuntoUniversal;
 
 /**
  * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
