@@ -104,8 +104,9 @@ public class DicMultipleL implements DiccionarioMultipleTDA {
 
 	@Override
 	public ConjuntoTDA Recuperar(int clave) {
-		// TODO Auto-generated method stub
-		return null;
+		NodoClave nodo = Clave2NodoClave(clave);
+		ConjuntoTDA conjuntoClaves = new ConjuntoLD();
+		return conjuntoClaves;
 	}
 
 	@Override

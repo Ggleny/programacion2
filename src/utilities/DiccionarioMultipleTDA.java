@@ -1,8 +1,9 @@
 package utilities;
 
-import implementations.listas.DicSimpleL;
+import implementations.listas.DicMultipleL;
 
 public class DiccionarioMultipleTDA {
-	DicSimpleL Dado1;
-	DicSimpleL Dado2;
+	DicMultipleL Dado1;
+	DicMultipleL Dado2;
+	
 }
