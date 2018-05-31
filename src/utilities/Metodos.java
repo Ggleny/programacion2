@@ -595,7 +595,7 @@ public class Metodos {
 			caux.Sacar(caux.Elegir());
 		}
 		return conjdiferencia;
+		
 }
-
-	
 }
+ 
