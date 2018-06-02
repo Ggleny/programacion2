@@ -1,4 +1,4 @@
-package implementaciones.arreglos;
+package implementations.arreglos;
 
 import api.ConjuntoTDA;
 

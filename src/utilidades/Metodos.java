@@ -2,9 +2,9 @@ package utilidades;
 
 import api.ColaTDA;
 import api.PilaTDA;
-import implementaciones.arreglos.ColaPI;
-import implementaciones.arreglos.ColaPU;
-import implementaciones.arreglos.PilaTF;
+import implementations.arreglos.ColaPI;
+import implementations.arreglos.ColaPU;
+import implementations.arreglos.PilaTF;
 
 public class Metodos {
 	/**

@@ -1,6 +1,6 @@
 package utilidades;
 
-import implementaciones.arreglos.DicSimpleA;
+import implementations.arreglos.DicSimpleA;
 
 public class PruebaDiccionario {
 	public static void main(String[] args) {

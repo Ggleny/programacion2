@@ -1,7 +1,7 @@
 package tps.tp1;
 
 import api.PilaTDA;
-import implementaciones.arreglos.PilaTF;
+import implementations.arreglos.PilaTF;
 import utilidades.Metodos;
 
 public class Ejercicio2 {
