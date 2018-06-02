@@ -2,6 +2,7 @@ package tps;
 
 import api.ConjuntoTDA;
 import implementations.arreglos.ConjuntoUniversal;
+import implementations.listas.ConjuntoUniversalLD;
 
 /**
  * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
@@ -13,16 +14,32 @@ public class TP2 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		/*Prueba Conjunto universal Array*/
+		System.out.println("ConjuntoUniversal Arreglos");
 		ConjuntoTDA conjuntoUniversal = new ConjuntoUniversal();
 		conjuntoUniversal.Inicializar();
 		//conjuntoUniversal.Agregar(2);
 		conjuntoUniversal.Agregar(80);
 		conjuntoUniversal.Agregar(10);
 		conjuntoUniversal.Agregar(35);
-		System.out.println("Cantidad "+conjuntoUniversal.ConjuntoVacio());
+		System.out.println("Conjunto Vacio? "+conjuntoUniversal.ConjuntoVacio());
 		System.out.println("80 pertenece ? "+conjuntoUniversal.Pertenece(80));
 		System.out.println("82 pertenece ? "+conjuntoUniversal.Pertenece(82));
 		System.out.println("Se elije: "+conjuntoUniversal.Elegir());
+		
+		/*Prueba Conjunto Universal Lista*/
+		System.out.println("\n\nConjuntoUniversal Lista Dinamica");
+		ConjuntoTDA conjuntoUniversalLD = new ConjuntoUniversalLD();
+		conjuntoUniversal.Inicializar();
+		//conjuntoUniversal.Agregar(2);
+		conjuntoUniversal.Agregar(80);
+		conjuntoUniversal.Agregar(10);
+		conjuntoUniversal.Agregar(35);
+		System.out.println("Conjunto Vacio? "+conjuntoUniversal.ConjuntoVacio());
+		System.out.println("80 pertenece ? "+conjuntoUniversal.Pertenece(80));
+		System.out.println("82 pertenece ? "+conjuntoUniversal.Pertenece(82));
+		System.out.println("Se elije: "+conjuntoUniversal.Elegir());
+		
 		
 		
 	}
