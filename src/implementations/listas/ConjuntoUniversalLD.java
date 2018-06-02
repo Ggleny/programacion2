@@ -21,7 +21,8 @@ public class ConjuntoUniversalLD implements ConjuntoTDA {
 			cantidad = 0;
 			int i = 0;
 			while(i<tamanio) {
-				this.CrearNodo(i,false);
+				this.CrearNodo(i+1,false);
+				i++;
 			}
 		}
 
@@ -36,27 +37,33 @@ public class ConjuntoUniversalLD implements ConjuntoTDA {
 		public void Agregar(int elemento) {
 			if(!this.Pertenece(elemento) && this.ElementoValido(elemento)) {
 				this.SeleccionarNodo(elemento).activo=true;
+				cantidad++;
 			}
 		}
 
 		
 		public int Elegir() {
-			NodoUniversal auxiliar = new NodoUniversal();
-			while((auxiliar != null) && (auxiliar.activo != true))
-				auxiliar=auxiliar.siguiente;
-			return auxiliar.clave+1;
+			if(!this.ConjuntoVacio()) {
+				NodoUniversal auxiliar = conjunto;
+				while((auxiliar != null) && (auxiliar.activo != true))
+					auxiliar=auxiliar.siguiente;
+				return auxiliar.clave;
+			}else {
+				return 0;
+			}
 		}
 
 		
 		public void Sacar(int elemento) {
 			if(this.Pertenece(elemento)) {
 				this.SeleccionarNodo(elemento).activo=false;
+				cantidad--;
 			}
 		}
 
 		public boolean Pertenece(int elemento) {
-			int clave = elemento -1;
-			if(this.ElementoValido(clave)) {
+			//System.out.println("pertenece "+elemento+" "+this.ElementoValido(elemento));
+			if(this.ElementoValido(elemento)) {
 				return SeleccionarNodo(elemento).activo;
 			}else {
 				//No pertenece porque no es un elemento valido
@@ -72,18 +79,14 @@ public class ConjuntoUniversalLD implements ConjuntoTDA {
 			conjunto = auxiliar;
 		}
 		private NodoUniversal SeleccionarNodo(int elemento) {
-			int clave = elemento-1;
-			NodoUniversal auxiliar = new NodoUniversal();
-			while((auxiliar != null) && (auxiliar.clave != clave))
+			int clave = elemento;
+			NodoUniversal auxiliar = conjunto;
+			while((auxiliar != null) && (auxiliar.clave != clave)) {
 				auxiliar=auxiliar.siguiente;
+			}
 			return auxiliar;
 		}
-		/*private NodoUniversal SeleccionarActivo() {
-			NodoUniversal auxiliar = new NodoUniversal();
-			while((auxiliar != null) && (auxiliar.activo != true))
-				auxiliar=auxiliar.siguiente;
-			return auxiliar;
-		}*/
+		
 		private boolean ElementoValido(int elemento) {
 			return (elemento>0 && elemento<=tamanio);
 		}
