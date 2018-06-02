@@ -19,10 +19,10 @@ public class ConjuntoUniversalLD implements ConjuntoTDA {
 		public void Inicializar() {
 			conjunto = null;
 			cantidad = 0;
-			int i = 0;
-			while(i<tamanio) {
-				this.CrearNodo(i+1,false);
-				i++;
+			int i = tamanio;
+			while(i>0) {
+				this.CrearNodo(i,false);
+				i--;
 			}
 		}
 

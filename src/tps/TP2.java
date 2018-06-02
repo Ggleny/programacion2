@@ -37,11 +37,11 @@ public class TP2 {
 		conjuntoUniversalLD.Agregar(80);
 		conjuntoUniversalLD.Agregar(10);
 		conjuntoUniversalLD.Agregar(35);
+		conjuntoUniversalLD.Sacar(10);
 		System.out.println("Conjunto Vacio? "+conjuntoUniversalLD.ConjuntoVacio());
 		System.out.println("80 pertenece ? "+conjuntoUniversalLD.Pertenece(80));
 		System.out.println("82 pertenece ? "+conjuntoUniversalLD.Pertenece(82));
 		System.out.println("Se elije: "+conjuntoUniversalLD.Elegir());
 		
-				
 	}
 }
