@@ -43,5 +43,7 @@ public class TP2 {
 		System.out.println("82 pertenece ? "+conjuntoUniversalLD.Pertenece(82));
 		System.out.println("Se elije: "+conjuntoUniversalLD.Elegir());
 		
+		/* */
+		
 	}
 }

@@ -106,13 +106,26 @@ public class DicMultipleL implements DiccionarioMultipleTDA {
 	public ConjuntoTDA Recuperar(int clave) {
 		NodoClave nodo = Clave2NodoClave(clave);
 		ConjuntoTDA conjuntoClaves = new ConjuntoLD();
+		if(nodo!=null) {
+			NodoValor aux = nodo.valores;
+			while(aux!=null) {
+				conjuntoClaves.Agregar(aux.valor);
+				aux = aux.siguienteValor;
+			};
+		}
 		return conjuntoClaves;
 	}
 
 	@Override
 	public ConjuntoTDA Claves() {
-		// TODO Auto-generated method stub
-		return null;
+		ConjuntoTDA claves = new ConjuntoLD();
+		claves.Inicializar();
+		NodoClave aux = origen;
+		while(aux!=null) {
+			claves.Agregar(aux.clave);
+			aux = aux.siguiente;
+		}
+		return claves;
 	}
 
 }

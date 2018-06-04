@@ -10,9 +10,15 @@ import implementations.arreglos.ColaPrioridadAO;
 import implementations.arreglos.ColaPrioridadDA;
 import implementations.arreglos.PilaTF;
 import implementations.arreglos.PilaTI;
+import implementations.listas.ConjuntoLD;
+import implementations.listas.DicMultipleL;
 import api.ColaTDA;
+
+import javax.lang.model.element.Element;
+
 import api.ColaPrioridadTDA;
 import api.ConjuntoTDA;
+import api.DiccionarioMultipleTDA;
 import implementations.arreglos.ConjuntoTA;
 
 
@@ -570,7 +576,7 @@ public class Metodos {
 			caux.Sacar(caux.Elegir());
 		}
 		return conjunion;
-}
+	}	
 	
 	/**
 	 * @#Diferencia
@@ -596,6 +602,77 @@ public class Metodos {
 		}
 		return conjdiferencia;
 		
-}
+	}
+	
+	public static ConjuntoTDA UnionLD(ConjuntoTDA conjunto1,ConjuntoTDA conjunto2){
+		ConjuntoTDA conjunion = new ConjuntoLD();
+		conjunion.Inicializar();
+		ConjuntoTDA caux = new ConjuntoLD();
+		caux.Inicializar();
+		CopiarConjunto(conjunto1,conjunion);
+		CopiarConjunto(conjunto2,caux);
+		while (!caux.ConjuntoVacio()){
+			if(conjunion.Pertenece(caux.Elegir()))
+				conjunion.Agregar(caux.Elegir());
+			caux.Sacar(caux.Elegir());
+		}
+		return conjunion;
+	}	
+	
+	/*public static void  (ConjuntoTDA conjunto) {
+		ConjuntoTDA caux = new ConjuntoLD();
+		caux.Inicializar();
+		CopiarConjunto(conjunto,caux);
+		while(!caux.ConjuntoVacio()) {
+			System.out.println("Valor Conjunto: "+caux.Elegir());
+			caux.Sacar(caux.Elegir());
+		}
+	}*/
+	public static void mostrarClaveValor (DiccionarioMultipleTDA dic) {
+		ConjuntoTDA caux = new ConjuntoLD();
+		ConjuntoTDA auxValores;
+		caux.Inicializar();
+		CopiarConjunto(dic.Claves(),caux);
+		while(!caux.ConjuntoVacio()) {
+			System.out.println("Clave diccionario: "+caux.Elegir());
+			auxValores = dic.Recuperar(caux.Elegir());
+			while(!auxValores.ConjuntoVacio()) {
+				System.out.println("  Valor: "+auxValores.Elegir());
+				auxValores.Sacar(auxValores.Elegir());
+			}
+			caux.Sacar(caux.Elegir());
+		}
+	}
+	//Punto 5.1  Con listas a)
+	public static DiccionarioMultipleTDA UnionDic(DiccionarioMultipleTDA d1, DiccionarioMultipleTDA d2) {
+		DiccionarioMultipleTDA dicUnion = new DicMultipleL();
+		dicUnion.InicializarDiccionario();
+		//ConjuntoTDA claves = UnionLD(d1.Claves(),d2.Claves());
+		if(!d1.Claves().ConjuntoVacio()) {
+			ConjuntoTDA claves = d1.Claves();
+			ConjuntoTDA auxValores;
+			while (!claves.ConjuntoVacio()){
+				auxValores = d1.Recuperar(claves.Elegir()); 
+				while(!auxValores.ConjuntoVacio()) {
+					dicUnion.Agregar(claves.Elegir(), auxValores.Elegir());
+					auxValores.Sacar(auxValores.Elegir());
+				}
+				claves.Sacar(claves.Elegir());
+			}
+		}
+		if(!d2.Claves().ConjuntoVacio()) {
+			ConjuntoTDA claves = d2.Claves();
+			ConjuntoTDA auxValores;
+			while (!claves.ConjuntoVacio()){
+				auxValores = d2.Recuperar(claves.Elegir()); 
+				while(!auxValores.ConjuntoVacio()) {
+					dicUnion.Agregar(claves.Elegir(), auxValores.Elegir());
+					auxValores.Sacar(auxValores.Elegir());
+				}
+				claves.Sacar(claves.Elegir());
+			}
+		}
+		return dicUnion;
+	}
 }
  
