@@ -619,15 +619,7 @@ public class Metodos {
 		return conjunion;
 	}	
 	
-	/*public static void  (ConjuntoTDA conjunto) {
-		ConjuntoTDA caux = new ConjuntoLD();
-		caux.Inicializar();
-		CopiarConjunto(conjunto,caux);
-		while(!caux.ConjuntoVacio()) {
-			System.out.println("Valor Conjunto: "+caux.Elegir());
-			caux.Sacar(caux.Elegir());
-		}
-	}*/
+	/*Metodo para mostrar las claves y valores de una diccionario*/
 	public static void mostrarClaveValor (DiccionarioMultipleTDA dic) {
 		ConjuntoTDA caux = new ConjuntoLD();
 		ConjuntoTDA auxValores;
@@ -643,34 +635,28 @@ public class Metodos {
 			caux.Sacar(caux.Elegir());
 		}
 	}
+	private static void PasarValoresDic(DiccionarioMultipleTDA dicToConcat,DiccionarioMultipleTDA d1) {
+		ConjuntoTDA claves = d1.Claves();
+		ConjuntoTDA auxValores;
+		while (!claves.ConjuntoVacio()){
+			auxValores = d1.Recuperar(claves.Elegir()); 
+			while(!auxValores.ConjuntoVacio()) {
+				dicToConcat.Agregar(claves.Elegir(), auxValores.Elegir());
+				auxValores.Sacar(auxValores.Elegir());
+			}
+			claves.Sacar(claves.Elegir());
+		}
+	}
 	//Punto 5.1  Con listas a)
 	public static DiccionarioMultipleTDA UnionDic(DiccionarioMultipleTDA d1, DiccionarioMultipleTDA d2) {
 		DiccionarioMultipleTDA dicUnion = new DicMultipleL();
 		dicUnion.InicializarDiccionario();
 		//ConjuntoTDA claves = UnionLD(d1.Claves(),d2.Claves());
 		if(!d1.Claves().ConjuntoVacio()) {
-			ConjuntoTDA claves = d1.Claves();
-			ConjuntoTDA auxValores;
-			while (!claves.ConjuntoVacio()){
-				auxValores = d1.Recuperar(claves.Elegir()); 
-				while(!auxValores.ConjuntoVacio()) {
-					dicUnion.Agregar(claves.Elegir(), auxValores.Elegir());
-					auxValores.Sacar(auxValores.Elegir());
-				}
-				claves.Sacar(claves.Elegir());
-			}
+			Metodos.PasarValoresDic(dicUnion,d1);
 		}
 		if(!d2.Claves().ConjuntoVacio()) {
-			ConjuntoTDA claves = d2.Claves();
-			ConjuntoTDA auxValores;
-			while (!claves.ConjuntoVacio()){
-				auxValores = d2.Recuperar(claves.Elegir()); 
-				while(!auxValores.ConjuntoVacio()) {
-					dicUnion.Agregar(claves.Elegir(), auxValores.Elegir());
-					auxValores.Sacar(auxValores.Elegir());
-				}
-				claves.Sacar(claves.Elegir());
-			}
+			Metodos.PasarValoresDic(dicUnion,d2);
 		}
 		return dicUnion;
 	}
