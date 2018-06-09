@@ -106,6 +106,7 @@ public class DicMultipleL implements DiccionarioMultipleTDA {
 	public ConjuntoTDA Recuperar(int clave) {
 		NodoClave nodo = Clave2NodoClave(clave);
 		ConjuntoTDA conjuntoClaves = new ConjuntoLD();
+		conjuntoClaves.Inicializar();
 		if(nodo!=null) {
 			NodoValor aux = nodo.valores;
 			while(aux!=null) {

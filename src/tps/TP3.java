@@ -27,6 +27,7 @@ public class TP3 {
 		dic1.Agregar(20, 4);
 		
 		dic1.EliminarValor(20, 4);
+		dic1.Agregar(40, 20);
 		
 		DiccionarioMultipleTDA dic2 = new DicMultipleL();
 		dic2.InicializarDiccionario();
@@ -51,6 +52,18 @@ public class TP3 {
 		Metodos.mostrarClaveValor(dic1);
 		System.out.println("Claves del Diccionario 2");
 		Metodos.mostrarClaveValor(dic2);
+		
+		/* Prueba Union Diccionario Multiple  5.1  b)*/
+		System.out.println();System.out.println("Ejercicio 5.1 b"); System.out.println();
+		unionDic =  Metodos.UnionClavesDic(dic1,dic2);
+		System.out.println("Valores y claves del Diccionario UnionClavesDic");
+		Metodos.mostrarClaveValor(unionDic);
+		System.out.println();
+		/*System.out.println("Claves del Diccionario 1");
+		Metodos.mostrarClaveValor(dic1);
+		System.out.println("Claves del Diccionario 2");
+		Metodos.mostrarClaveValor(dic2);*/
+		
 		
 	}
 }

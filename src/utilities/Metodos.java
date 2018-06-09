@@ -551,8 +551,8 @@ public class Metodos {
 			}
 			caux.Sacar(caux.Elegir());
 		}
-	return cinterseccion;
-}
+		return cinterseccion;
+	}
 
 	/**
 	 * @#Union
@@ -619,6 +619,23 @@ public class Metodos {
 		return conjunion;
 	}	
 	
+	public static ConjuntoTDA InterseccionLD(ConjuntoTDA conjunto1,ConjuntoTDA conjunto2){
+		ConjuntoTDA cinterseccion = new ConjuntoLD();
+		cinterseccion.Inicializar();
+		ConjuntoTDA caux = new ConjuntoLD();
+		caux.Inicializar();
+		System.out.println("Entro a interseccion ");
+		CopiarConjunto(conjunto1,caux);
+		while(!caux.ConjuntoVacio()){
+			if(conjunto2.Pertenece(caux.Elegir())){
+				cinterseccion.Agregar(caux.Elegir());
+			}
+			caux.Sacar(caux.Elegir());
+		}
+		System.out.println("Salgo de interseccion");
+		return cinterseccion;
+	}
+	
 	/*Metodo para mostrar las claves y valores de una diccionario*/
 	public static void mostrarClaveValor (DiccionarioMultipleTDA dic) {
 		ConjuntoTDA caux = new ConjuntoLD();
@@ -660,5 +677,74 @@ public class Metodos {
 		}
 		return dicUnion;
 	}
+	
+	//Punto 5.1  Con listas b)
+		public static DiccionarioMultipleTDA UnionClavesDic(DiccionarioMultipleTDA d1, DiccionarioMultipleTDA d2) {
+			DiccionarioMultipleTDA dicUnion = new DicMultipleL();
+			dicUnion.InicializarDiccionario();
+			ConjuntoTDA auxValores,auxValores2;
+			if(!d1.Claves().ConjuntoVacio() && !d2.Claves().ConjuntoVacio()) {
+				ConjuntoTDA claves =  d1.Claves();
+				int claveAux,valorAux;
+				while (!claves.ConjuntoVacio()){
+					claveAux = claves.Elegir();
+					auxValores = d1.Recuperar(claveAux); 
+					auxValores2 = d2.Recuperar(claveAux);
+					ConjuntoTDA interseccionValores = InterseccionLD(auxValores, auxValores2);
+					//Si tienen valores en comun.
+					if(!interseccionValores.ConjuntoVacio()) {
+						
+						while(!interseccionValores.ConjuntoVacio()) {
+							valorAux = interseccionValores.Elegir();
+							//Agregos valores comunes de la Clave seleccionada,
+							dicUnion.Agregar(claveAux, valorAux);
+							interseccionValores.Sacar(valorAux);
+						}
+					}else  { 
+						//Si no tienen ningun valor en comun, solo agrego la clave
+						System.out.println("Valor a agregar "+claveAux);
+						if(!dicUnion.Claves().Pertenece(claveAux)) {
+							dicUnion.Agregar(claveAux, auxValores.Elegir());
+							dicUnion.EliminarValor(claveAux, auxValores.Elegir());
+						}
+						
+						//Como el valor elegido no es comun entre los dos diccionario lo elimino
+						//Asi dejando su clave sin valores.
+						
+					}
+					claves.Sacar(claveAux);
+				}
+				System.out.println("Salgo del While");
+				auxValores2 = d2.Claves();
+				Metodos.agregarClaves(auxValores2,dicUnion);//Agrego las claves de d2
+
+			}else {
+				auxValores = d1.Claves();
+				auxValores2 = d2.Claves();
+				if(!auxValores.ConjuntoVacio()) { //Agrego las claves de d1
+					Metodos.agregarClaves(auxValores,dicUnion);
+				}else if(!auxValores2.ConjuntoVacio()) { //Agrego las claves de d2
+					Metodos.agregarClaves(auxValores2,dicUnion);
+				}
+				
+			}
+			return dicUnion;
+		}
+		//agrega solo la clave al diccionario que se le pase.
+		private static void agregarClaves(ConjuntoTDA claves,DiccionarioMultipleTDA dic) {
+			int valorAux = 0,claveAux;
+			ConjuntoTDA clavesAux = new ConjuntoLD(); clavesAux.Inicializar();
+			CopiarConjunto(claves, clavesAux);
+			while(!clavesAux.ConjuntoVacio()) {
+				claveAux = clavesAux.Elegir();
+				if(!dic.Claves().Pertenece(claveAux)) {
+					dic.Agregar(claveAux, valorAux);
+					dic.EliminarValor(claveAux, valorAux);
+					
+				}
+				clavesAux.Sacar(claveAux);
+			}
+		}
+		
 }
  
