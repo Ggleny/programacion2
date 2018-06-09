@@ -624,7 +624,6 @@ public class Metodos {
 		cinterseccion.Inicializar();
 		ConjuntoTDA caux = new ConjuntoLD();
 		caux.Inicializar();
-		System.out.println("Entro a interseccion ");
 		CopiarConjunto(conjunto1,caux);
 		while(!caux.ConjuntoVacio()){
 			if(conjunto2.Pertenece(caux.Elegir())){
@@ -632,7 +631,6 @@ public class Metodos {
 			}
 			caux.Sacar(caux.Elegir());
 		}
-		System.out.println("Salgo de interseccion");
 		return cinterseccion;
 	}
 	
@@ -652,15 +650,19 @@ public class Metodos {
 			caux.Sacar(caux.Elegir());
 		}
 	}
+	private static void pasarValoresAClave(ConjuntoTDA auxValores,int clave, DiccionarioMultipleTDA dicToConcat) {
+		while(!auxValores.ConjuntoVacio()) {
+			dicToConcat.Agregar(clave, auxValores.Elegir());
+			auxValores.Sacar(auxValores.Elegir());
+		}
+	}
+	
 	private static void PasarValoresDic(DiccionarioMultipleTDA dicToConcat,DiccionarioMultipleTDA d1) {
 		ConjuntoTDA claves = d1.Claves();
 		ConjuntoTDA auxValores;
 		while (!claves.ConjuntoVacio()){
-			auxValores = d1.Recuperar(claves.Elegir()); 
-			while(!auxValores.ConjuntoVacio()) {
-				dicToConcat.Agregar(claves.Elegir(), auxValores.Elegir());
-				auxValores.Sacar(auxValores.Elegir());
-			}
+			auxValores = d1.Recuperar(claves.Elegir());
+			Metodos.pasarValoresAClave(auxValores,claves.Elegir(),d1);
 			claves.Sacar(claves.Elegir());
 		}
 	}
@@ -668,7 +670,6 @@ public class Metodos {
 	public static DiccionarioMultipleTDA UnionDic(DiccionarioMultipleTDA d1, DiccionarioMultipleTDA d2) {
 		DiccionarioMultipleTDA dicUnion = new DicMultipleL();
 		dicUnion.InicializarDiccionario();
-		//ConjuntoTDA claves = UnionLD(d1.Claves(),d2.Claves());
 		if(!d1.Claves().ConjuntoVacio()) {
 			Metodos.PasarValoresDic(dicUnion,d1);
 		}
@@ -693,28 +694,18 @@ public class Metodos {
 					ConjuntoTDA interseccionValores = InterseccionLD(auxValores, auxValores2);
 					//Si tienen valores en comun.
 					if(!interseccionValores.ConjuntoVacio()) {
-						
-						while(!interseccionValores.ConjuntoVacio()) {
-							valorAux = interseccionValores.Elegir();
-							//Agregos valores comunes de la Clave seleccionada,
-							dicUnion.Agregar(claveAux, valorAux);
-							interseccionValores.Sacar(valorAux);
-						}
+						Metodos.pasarValoresAClave(interseccionValores,claveAux,dicUnion);
+
 					}else  { 
 						//Si no tienen ningun valor en comun, solo agrego la clave
-						System.out.println("Valor a agregar "+claveAux);
 						if(!dicUnion.Claves().Pertenece(claveAux)) {
 							dicUnion.Agregar(claveAux, auxValores.Elegir());
 							dicUnion.EliminarValor(claveAux, auxValores.Elegir());
 						}
 						
-						//Como el valor elegido no es comun entre los dos diccionario lo elimino
-						//Asi dejando su clave sin valores.
-						
 					}
 					claves.Sacar(claveAux);
 				}
-				System.out.println("Salgo del While");
 				auxValores2 = d2.Claves();
 				Metodos.agregarClaves(auxValores2,dicUnion);//Agrego las claves de d2
 
@@ -745,6 +736,49 @@ public class Metodos {
 				clavesAux.Sacar(claveAux);
 			}
 		}
-		
+	// PUnto 5.1 c)
+		public static DiccionarioMultipleTDA InterseccionClaves(DiccionarioMultipleTDA d1, DiccionarioMultipleTDA d2) {
+			DiccionarioMultipleTDA dicUnion = new DicMultipleL();
+			dicUnion.InicializarDiccionario();
+			ConjuntoTDA auxValores,auxValores2;
+			if(!d1.Claves().ConjuntoVacio() && !d2.Claves().ConjuntoVacio()) {
+				ConjuntoTDA claves =  d1.Claves();
+				int claveAux,valorAux;
+				while (!claves.ConjuntoVacio()){
+					claveAux = claves.Elegir();
+					auxValores = d1.Recuperar(claveAux); 
+					auxValores2 = d2.Recuperar(claveAux);
+					if(!auxValores.ConjuntoVacio() && !auxValores2.ConjuntoVacio()) {
+						Metodos.pasarValoresAClave(auxValores,claveAux,dicUnion);
+						Metodos.pasarValoresAClave(auxValores2,claveAux,dicUnion);
+					}
+					claves.Sacar(claveAux);
+				}
+			}
+			return dicUnion;
+		}
+		// PUnto 5.1 d)
+		public static DiccionarioMultipleTDA InterseccionClavesValores(DiccionarioMultipleTDA d1, DiccionarioMultipleTDA d2) {
+			DiccionarioMultipleTDA dicUnion = new DicMultipleL();
+			dicUnion.InicializarDiccionario();
+			ConjuntoTDA auxValores,auxValores2;
+			if(!d1.Claves().ConjuntoVacio() && !d2.Claves().ConjuntoVacio()) {
+				ConjuntoTDA claves =  d1.Claves();
+				int claveAux,valorAux;
+				while (!claves.ConjuntoVacio()){
+					claveAux = claves.Elegir();
+					auxValores = d1.Recuperar(claveAux); 
+					auxValores2 = d2.Recuperar(claveAux);
+					ConjuntoTDA interseccionValores = InterseccionLD(auxValores, auxValores2);
+					//Si tienen valores en comun.
+					if(!interseccionValores.ConjuntoVacio()) {
+						Metodos.pasarValoresAClave(interseccionValores,claveAux,dicUnion);
+						
+					}
+					claves.Sacar(claveAux);
+				}
+			}
+			return dicUnion;
+		}
 }
  

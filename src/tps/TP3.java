@@ -64,6 +64,22 @@ public class TP3 {
 		System.out.println("Claves del Diccionario 2");
 		Metodos.mostrarClaveValor(dic2);*/
 		
+
+		/* Prueba Union Diccionario Multiple  5.1  c)*/
+		System.out.println();System.out.println("Ejercicio 5.1 c"); System.out.println();
+		unionDic =  Metodos.InterseccionClaves(dic1,dic2);
+		System.out.println("Valores y claves del Diccionario UnionClavesDic");
+		Metodos.mostrarClaveValor(unionDic);
+		System.out.println();
+		
+		/* Prueba Union Diccionario Multiple  5.1  d)*/
+		System.out.println();System.out.println("Ejercicio 5.1 d"); System.out.println();
+		unionDic =  Metodos.InterseccionClavesValores(dic1,dic2);
+		System.out.println("Valores y claves del Diccionario UnionClavesDic");
+		Metodos.mostrarClaveValor(unionDic);
+		System.out.println();
+		
+		
 		
 	}
 }
