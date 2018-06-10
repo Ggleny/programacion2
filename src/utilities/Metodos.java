@@ -795,7 +795,9 @@ public class Metodos {
 				while (!claves.ConjuntoVacio()){
 					claveAux = claves.Elegir();
 					significado = diccionario.Recuperar(claveAux);
-					dicSinonimos.Agregar(significado, claveAux);
+					if(significado!=claveAux) {
+						dicSinonimos.Agregar(significado, claveAux);
+					}
 					claves.Sacar(claveAux);
 				}
 			}
