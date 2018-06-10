@@ -63,14 +63,19 @@ public class DicSimpleL implements DiccionarioSimpleTDA {
 
 	@Override
 	public int Recuperar(int clave) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.Clave2NodoClave(clave).valor;
 	}
 
 	@Override
 	public ConjuntoTDA Claves() {
-		// TODO Auto-generated method stub
-		return null;
+		ConjuntoTDA claves = new ConjuntoLD();
+		claves.Inicializar();
+		NodoClave aux = origen;
+		while(aux!=null) {
+			claves.Agregar(aux.clave);
+			aux =aux.siguiente;
+		}
+		return claves;
 	}
 
 }

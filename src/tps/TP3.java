@@ -2,7 +2,9 @@ package tps;
 
 import api.ConjuntoTDA;
 import api.DiccionarioMultipleTDA;
+import api.DiccionarioSimpleTDA;
 import implementations.listas.DicMultipleL;
+import implementations.listas.DicSimpleL;
 import utilities.Metodos;
 
 /**
@@ -68,16 +70,34 @@ public class TP3 {
 		/* Prueba Union Diccionario Multiple  5.1  c)*/
 		System.out.println();System.out.println("Ejercicio 5.1 c"); System.out.println();
 		unionDic =  Metodos.InterseccionClaves(dic1,dic2);
-		System.out.println("Valores y claves del Diccionario UnionClavesDic");
+		System.out.println("Valores y claves del Diccionario InterseccionClaves");
 		Metodos.mostrarClaveValor(unionDic);
 		System.out.println();
 		
 		/* Prueba Union Diccionario Multiple  5.1  d)*/
 		System.out.println();System.out.println("Ejercicio 5.1 d"); System.out.println();
 		unionDic =  Metodos.InterseccionClavesValores(dic1,dic2);
-		System.out.println("Valores y claves del Diccionario UnionClavesDic");
+		System.out.println("Valores y claves del Diccionario InterseccionClavesValores");
 		Metodos.mostrarClaveValor(unionDic);
 		System.out.println();
+		
+		
+		/* Prueba Union Diccionario Sinonimos  5.2 */
+		DiccionarioSimpleTDA dicSimple = new DicSimpleL();
+		dicSimple.InicializarDiccionario();
+		dicSimple.Agregar(20, 2);
+		dicSimple.Agregar(40, 2);
+		dicSimple.Agregar(80, 2);
+		dicSimple.Agregar(10, 1);
+		dicSimple.Agregar(1, 1);
+		dicSimple.Agregar(100, 1);
+		dicSimple.Agregar(200, 2);
+		System.out.println();System.out.println("Ejercicio 5.2"); System.out.println();
+		unionDic =  Metodos.diccionarioDeSinonimos(dicSimple);
+		System.out.println("Valores y claves del Diccionario Sinonimo");
+		Metodos.mostrarClaveValor(unionDic);
+		System.out.println();
+		
 		
 		
 		

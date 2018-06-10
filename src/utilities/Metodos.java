@@ -19,6 +19,7 @@ import javax.lang.model.element.Element;
 import api.ColaPrioridadTDA;
 import api.ConjuntoTDA;
 import api.DiccionarioMultipleTDA;
+import api.DiccionarioSimpleTDA;
 import implementations.arreglos.ConjuntoTA;
 
 
@@ -780,5 +781,26 @@ public class Metodos {
 			}
 			return dicUnion;
 		}
+		/***
+		 * 
+		 * @param diccionario
+		 * @return Diccionario multiple con sus valores.
+		 */
+		public static DiccionarioMultipleTDA diccionarioDeSinonimos(DiccionarioSimpleTDA diccionario) {
+			DiccionarioMultipleTDA dicSinonimos = new DicMultipleL();
+			dicSinonimos.InicializarDiccionario();
+			if(!diccionario.Claves().ConjuntoVacio()) {
+				ConjuntoTDA claves =  diccionario.Claves();
+				int claveAux,significado;//,valorAux;
+				while (!claves.ConjuntoVacio()){
+					claveAux = claves.Elegir();
+					significado = diccionario.Recuperar(claveAux);
+					dicSinonimos.Agregar(significado, claveAux);
+					claves.Sacar(claveAux);
+				}
+			}
+			return dicSinonimos;
+		}
+		
 }
  
