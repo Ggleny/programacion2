@@ -605,7 +605,7 @@ public class Metodos {
 		
 	}
 	
-	public static ConjuntoTDA UnionLD(ConjuntoTDA conjunto1,ConjuntoTDA conjunto2){
+	private static ConjuntoTDA UnionLD(ConjuntoTDA conjunto1,ConjuntoTDA conjunto2){
 		ConjuntoTDA conjunion = new ConjuntoLD();
 		conjunion.Inicializar();
 		ConjuntoTDA caux = new ConjuntoLD();
@@ -620,7 +620,7 @@ public class Metodos {
 		return conjunion;
 	}	
 	
-	public static ConjuntoTDA InterseccionLD(ConjuntoTDA conjunto1,ConjuntoTDA conjunto2){
+	private static ConjuntoTDA InterseccionLD(ConjuntoTDA conjunto1,ConjuntoTDA conjunto2){
 		ConjuntoTDA cinterseccion = new ConjuntoLD();
 		cinterseccion.Inicializar();
 		ConjuntoTDA caux = new ConjuntoLD();
@@ -667,6 +667,15 @@ public class Metodos {
 			claves.Sacar(claves.Elegir());
 		}
 	}
+	/**
+	 * @#UnionDic
+	 * @Tarea: Crea el diccionario con la union de los diccionarios
+	 * @Parametros: Se reciben dos elemento de tipo DiccionarioMultipleTDA.
+	 * @Devuelve: El DiccionarioMultiple union.
+	 * @Precondicion: Los diccionarios deben estar inicializados.
+	 * @Postcondicion: -
+	 * @Costo: Polinomica, pues tiene varias iteraciones consecutivas mas no anidadas
+	 */	
 	//Punto 5.1  Con listas a)
 	public static DiccionarioMultipleTDA UnionDic(DiccionarioMultipleTDA d1, DiccionarioMultipleTDA d2) {
 		DiccionarioMultipleTDA dicUnion = new DicMultipleL();
@@ -679,7 +688,15 @@ public class Metodos {
 		}
 		return dicUnion;
 	}
-	
+	/**
+	 * @#UnionClavesDic
+	 * @Tarea: Crea el diccionario con la union de claves y valores comunes entre los mismos.
+	 * @Parametros: Se reciben dos elemento de tipo DiccionarioMultipleTDA.
+	 * @Devuelve: El DiccionarioMultiple union de claves con valores comunes.
+	 * @Precondicion: Los diccionarios deben estar inicializados.
+	 * @Postcondicion: -
+	 * @Costo: 
+	 */
 	//Punto 5.1  Con listas b)
 		public static DiccionarioMultipleTDA UnionClavesDic(DiccionarioMultipleTDA d1, DiccionarioMultipleTDA d2) {
 			DiccionarioMultipleTDA dicUnion = new DicMultipleL();
@@ -737,7 +754,16 @@ public class Metodos {
 				clavesAux.Sacar(claveAux);
 			}
 		}
-	// PUnto 5.1 c)
+		/**
+		 * @#InterseccionClaves
+		 * @Tarea: Crea el diccionario con las claves comunes entre 2 diccionarios y todos los valores de las mismas.
+		 * @Parametros: Se reciben dos elemento de tipo DiccionarioMultipleTDA.
+		 * @Devuelve: El DiccionarioMultiple con interseccion de claves e union de valores.
+		 * @Precondicion: Los diccionarios deben estar inicializados.
+		 * @Postcondicion: -
+		 * @Costo: 
+		 */
+		// PUnto 5.1 c)
 		public static DiccionarioMultipleTDA InterseccionClaves(DiccionarioMultipleTDA d1, DiccionarioMultipleTDA d2) {
 			DiccionarioMultipleTDA dicUnion = new DicMultipleL();
 			dicUnion.InicializarDiccionario();
@@ -758,6 +784,15 @@ public class Metodos {
 			}
 			return dicUnion;
 		}
+		/**
+		 * @#InterseccionClavesValores
+		 * @Tarea: Crea el diccionario con las claves y valores comunes entre 2 diccionarios.
+		 * @Parametros: Se reciben dos elemento de tipo DiccionarioMultipleTDA.
+		 * @Devuelve: El DiccionarioMultiple con interseccion de claves y valores.
+		 * @Precondicion: Los diccionarios deben estar inicializados.
+		 * @Postcondicion: -
+		 * @Costo: 
+		 */
 		// PUnto 5.1 d)
 		public static DiccionarioMultipleTDA InterseccionClavesValores(DiccionarioMultipleTDA d1, DiccionarioMultipleTDA d2) {
 			DiccionarioMultipleTDA dicUnion = new DicMultipleL();
@@ -781,10 +816,14 @@ public class Metodos {
 			}
 			return dicUnion;
 		}
-		/***
-		 * 
-		 * @param diccionario
-		 * @return Diccionario multiple con sus valores.
+		/**
+		 * @#diccionarioDeSinonimos
+		 * @Tarea: Crea el diccionario de sinonimos. Donde se vincule todas las palabras que tienen el mismo significado.
+		 * @Parametros: Se reciben un Diccionario Simple.
+		 * @Devuelve: El DiccionarioMultiple con todos los sinonimos.
+		 * @Precondicion: El diccionario debe estar inicializado.
+		 * @Postcondicion: -
+		 * @Costo: 
 		 */
 		public static DiccionarioMultipleTDA diccionarioDeSinonimos(DiccionarioSimpleTDA diccionario) {
 			DiccionarioMultipleTDA dicSinonimos = new DicMultipleL();
