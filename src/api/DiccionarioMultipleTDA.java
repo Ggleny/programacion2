@@ -1,5 +1,13 @@
 package api;
 
+/**
+ * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
+ * @group: 16
+ * @ADT: TDA Diccionrio Multiple
+ * @definition: Coleccion de elementos, los cuales se agrupan segun una clave y un valor.
+ * En este caso, a cada clave le corresponden uno o mas valores. Las claves son unicas y solo existen
+ * si tienen asociado al menos un valor.
+ */
 public interface DiccionarioMultipleTDA {
 
 	/**

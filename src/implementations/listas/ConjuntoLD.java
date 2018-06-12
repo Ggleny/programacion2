@@ -5,9 +5,15 @@ import utilities.Nodo;
 
 /**
  * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
- * @definition: Implementacion de Conjunto utilizando estructuras dinamicas.
+ * @group: 16
+ * @cost:
+ * Inicializar: constante
+ * Agregar: lineal
+ * Sacar: lineal
+ * ConjuntoVacio: constante
+ * Elegir: constante
+ * Pertenece: lineal
  */
-
 public class ConjuntoLD implements ConjuntoTDA {
 	Nodo conjunto;
 	
@@ -23,7 +29,6 @@ public class ConjuntoLD implements ConjuntoTDA {
 			conjunto = auxiliar;
 		}
 	}
-
 	
 	public void Sacar(int x) {
 		if (conjunto != null){

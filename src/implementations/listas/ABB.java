@@ -3,6 +3,11 @@ package implementations.listas;
 import api.ABBTDA;
 import utilities.NodoABB;
 
+/**
+ * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
+ * @group: 16
+ * @cost: N/A
+ */
 public class ABB implements ABBTDA {
 	NodoABB raiz;
 	
@@ -29,7 +34,7 @@ public class ABB implements ABBTDA {
 	
 	public void EliminarElemento(int x) {
 		if(raiz!=null){
-			//Eel siguiente if es verdadero, si solo se agrego un elemento o si solo hay uno solo y es arbol. 
+			//El siguiente if es verdadero si solo se agrego un elemento o si solo hay uno solo y es arbol. 
 			if(raiz.info==x && raiz.HijoIzq.ArbolVacio() && raiz.HijoDer.ArbolVacio()){
 				raiz = null; // Porque elimine el unico valor que habia
 			}else if (raiz.info == x && !raiz.HijoIzq.ArbolVacio()){ //Encontre en la raiz el valor pero tiene un hijoIzquierdo.
@@ -53,5 +58,5 @@ public class ABB implements ABBTDA {
 	public ABBTDA HijoDer() {
 		return raiz.HijoDer;
 	}
-
+	
 }
