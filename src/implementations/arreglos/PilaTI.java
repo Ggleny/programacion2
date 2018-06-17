@@ -4,13 +4,8 @@ import api.PilaTDA;
 
 /**
  * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
- * @group: 16
- * @cost:
- * InicializarPila: constante
- * Apilar: lineal
- * Desapilar: lineal
- * PilaVacia: constante
- * Tope: constante
+ * @definition: Implementacion de Pila, utilizando arreglos, de forma tal que el tope siempre 
+ * se encontrara al principio del arreglo. Resulta mas costoso tanto apilar como desapilar.
  */
 public class PilaTI implements PilaTDA {
 

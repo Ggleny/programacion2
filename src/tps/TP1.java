@@ -18,7 +18,6 @@ import utilities.Metodos;
 
 /**
  * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
- * @group: 16
  */
 @SuppressWarnings("unused")
 public class TP1 {

@@ -1,12 +1,5 @@
 package api;
 
-/**
- * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
- * @group: 16
- * @ADT: TDA Diccionrio Simple
- * @definition: Coleccion de elementos, los cuales se agrupan segun una clave y un valor.
- * Las claves deben ser unicas.
- */
 public interface DiccionarioSimpleTDA {
 
 	/**
@@ -22,7 +15,7 @@ public interface DiccionarioSimpleTDA {
 	/**
 	 * @#Agregar
 	 * @Tarea: Agrega un elemento al diccionario si éste no existe, o lo modifica si ya existe
-	 * @Parametros: Recibe dos elementos: uno con la clave identificatoria y otro con el valor correspondiente
+	 * @Parametros: Recibe dos enteros: uno con la clave identificatoria y otro con el valor correspondiente
 	 * @Devuelve: -
 	 * @Precondicion: El diccionario debe estar inicializado
 	 * @Postcondicion: El diccionario tiene un elemento mas que antes
@@ -32,7 +25,7 @@ public interface DiccionarioSimpleTDA {
 	/**
 	 * @#Eliminar
 	 * @Tarea: Elimina un elemento del diccionario
-	 * @Parametros: Recibe un elemento correspondiente a la clave del elemento que se quiere eliminar
+	 * @Parametros: Recibe un entero correspondiente a la clave del elemento que se quiere eliminar
 	 * @Devuelve: -
 	 * @Precondicion: El diccionario debe estar inicializado y tener, al menos, un elemento
 	 * @Postcondicion: El diccionario tiene un elemento menos que antes

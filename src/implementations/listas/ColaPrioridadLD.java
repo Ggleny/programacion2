@@ -5,15 +5,10 @@ import utilities.NodoConPrioridad;
 
 /**
  * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
- * @group: 16
- * @cost:
- * InicializarCola: constante
- * AcolarPrioridad: lineal
- * Desacolar: constante
- * ColaVacia: constante
- * Primero: constante
- * Prioridad: constante
+ * @definition: Implementacion de Cola con Prioridad, utilizando estructuras dinamicas, donde la estrategia es modificar el nodo
+ * de una cola simple para que ademas contenga el valor de la prioridad.
  */
+
 public class ColaPrioridadLD implements ColaPrioridadTDA {
 	NodoConPrioridad mayorPrioridad ;
 	

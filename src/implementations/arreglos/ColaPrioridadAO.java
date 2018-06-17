@@ -4,14 +4,8 @@ import api.ColaPrioridadTDA;
 
 /**
  * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
- * @group: 16
- * @cost:
- * InicializarCola: constante
- * AcolarPrioridad: lineal
- * Desacolar: constante
- * ColaVacia: constante
- * Primero: constante
- * Prioridad: constante
+ * @definition: Implementacion de Cola con Prioridad, utilizando un arreglo de objetos, de forma tal que el tope siempre 
+ * se encontrara al final del arreglo. Resulta menos costoso desacolar que acolar.
  */
 public class ColaPrioridadAO implements ColaPrioridadTDA {
 

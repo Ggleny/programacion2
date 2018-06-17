@@ -3,16 +3,6 @@ package implementations.arreglos;
 import api.ConjuntoTDA;
 import api.DiccionarioSimpleTDA;
 
-/**
- * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
- * @group: 16
- * @cost:
- * InicializarDiccionario: constante
- * Agregar: lineal
- * Eliminar: lineal
- * Recuperar: lineal
- * Claves: lineal
- */
 public class DicSimpleA implements DiccionarioSimpleTDA {
 	class Elemento{
 		int clave;

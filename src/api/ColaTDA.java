@@ -2,9 +2,7 @@ package api;
 
 /**
  * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
- * @group: 16
- * @ADT: TDA Cola
- * @definition: Coleccion de datos tal que el primero en entrar es el primero en salir. 
+ * @definition: Coleccion de datos tal que el primero en entrar es el primero en salir
  */
 public interface ColaTDA {
 

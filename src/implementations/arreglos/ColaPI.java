@@ -4,13 +4,8 @@ import api.ColaTDA;
 
 /**
  * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
- * @group: 16
- * @cost:
- * InicializarCola: constante
- * Acolar: constante
- * Desacolar: lineal
- * ColaVacia: constante
- * Primero: constante
+ * @definition: Implementacion de Cola, utilizando arreglos, de forma tal que el primer elemento siempre 
+ * se encontrara al inicio de arreglo. Resulta mas costoso desacolar pero menos costoso acolar.
  */
 public class ColaPI implements ColaTDA {
 

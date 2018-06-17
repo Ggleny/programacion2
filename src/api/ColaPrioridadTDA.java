@@ -2,10 +2,9 @@ package api;
 
 /**
  * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
- * @group: 16
- * @ADT: TDA Cola con Prioridad
  * @definition: Coleccion de datos tal que el primero en entrar es el primero en salir, salvo
- * cuando algun elemento tenga prioridad sobre otro.
+ * cuando algun elemento tenga prioridad sobre otro. En este caso, tiene un mayor costo cuando 
+ * se acola que cuando se desacola.
  */
 public interface ColaPrioridadTDA {
 

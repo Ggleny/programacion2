@@ -2,17 +2,7 @@ package implementations.arreglos;
 
 import api.ConjuntoTDA;
 
-/**
- * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
- * @group: 16
- * @cost:
- * Inicializar: constante
- * Agregar: lineal
- * Sacar: lineal
- * ConjuntoVacio: constante
- * Elegir: constante
- * Pertenece: lineal
- */
+
 public class ConjuntoTA implements ConjuntoTDA {
 	
 	int [] vector;

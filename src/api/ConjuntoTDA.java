@@ -2,9 +2,7 @@ package api;
 
 /**
  * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
- * @group: 16
- * @ADT: TDA Conjunto
- * @definition: Coleccion de datos sin un orden definido, el cual no cuenta con repeticiones. 
+ * @definition: Coleccion de datos sin un orden definido
  */
 public interface ConjuntoTDA {
 

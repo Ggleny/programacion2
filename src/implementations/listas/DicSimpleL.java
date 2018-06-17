@@ -3,16 +3,6 @@ package implementations.listas;
 import api.ConjuntoTDA;
 import api.DiccionarioSimpleTDA;
 
-/**
- * @author: Leto, Marcelo; Godoy Parise, Andres; Rodriguez Cachuan, Gleny
- * @group: 16
- * @cost:
- * InicializarDiccionario: constante
- * Agregar: lineal
- * Eliminar: lineal
- * Recuperar: lineal
- * Claves: lineal
- */
 public class DicSimpleL implements DiccionarioSimpleTDA {
 
 	class NodoClave {
@@ -21,10 +11,11 @@ public class DicSimpleL implements DiccionarioSimpleTDA {
 		NodoClave siguiente;
 	}
 	NodoClave origen;
-	
 	public void InicializarDiccionario() {
 		origen = null;
+
 	}
+
 	
 	public void Agregar(int clave, int valor) {
 		NodoClave nodoClave = Clave2NodoClave(clave);
@@ -32,13 +23,18 @@ public class DicSimpleL implements DiccionarioSimpleTDA {
 			nodoClave = new NodoClave();
 			nodoClave.clave = clave;
 			nodoClave.siguiente = origen;
+			//Origen ultimo elemento agregado. 
 			origen = nodoClave;
 		}
 		nodoClave.valor = valor;
+
 	}
-	
-	private NodoClave Clave2NodoClave(int clave){
+	//Declaro funcion privada para obtener el nodo que corresponda a la clave;
+	private NodoClave Clave2NodoClave( int clave){
 		NodoClave auxiliar = origen;
+		// iterar mientras haya algun elemento(auxiliar!=null) 
+		//( si es auxiliar es null, es porque origen es null, por ende no hay elementos)
+		// e itera mientras no se haya encontrado la clave buscada, si se encontro el nodo con esa clave termina iteracion
 		while( auxiliar!=null && auxiliar.clave!=clave){
 			auxiliar = auxiliar.siguiente;
 		}
@@ -46,32 +42,40 @@ public class DicSimpleL implements DiccionarioSimpleTDA {
 	} 
 
 	public void Eliminar(int clave) {
+		//Si la lista no esta vacia
 		if(origen!=null){
+			//Si el ultimo elemento agegado es el buscado 
 			if(origen.clave == clave){
+				//Elimino la cabeza de la lista, y lo desliso uno a la izquierda
 				origen = origen.siguiente;
 			}else{
+				//BUSCO
+				//Inicio por el origen(donde el origen no es la clave buscada)
+				//Y del origen verifico que su siguiente que es otro nodoClave, tenga esa clave, e itera mientras no la encuentre.
 				NodoClave auxiliar = origen;
 				while( auxiliar!=null && auxiliar.siguiente.clave!=clave ){
 					auxiliar = auxiliar.siguiente;
 				}
 			}
 		}
+
 	}
 
+	@Override
 	public int Recuperar(int clave) {
-		NodoClave nodo = Clave2NodoClave(clave);
-		return nodo.valor;
+		return this.Clave2NodoClave(clave).valor;
 	}
 
+	@Override
 	public ConjuntoTDA Claves() {
-		ConjuntoTDA conj = new ConjuntoLD();
-		conj.Inicializar();
-		NodoClave nodoaux = origen;
-		while (nodoaux != null){
-			conj.Agregar(nodoaux.clave);
-			nodoaux = nodoaux.siguiente;
+		ConjuntoTDA claves = new ConjuntoLD();
+		claves.Inicializar();
+		NodoClave aux = origen;
+		while(aux!=null) {
+			claves.Agregar(aux.clave);
+			aux =aux.siguiente;
 		}
-		return conj;
+		return claves;
 	}
 
 }
