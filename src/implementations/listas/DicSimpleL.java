@@ -56,6 +56,9 @@ public class DicSimpleL implements DiccionarioSimpleTDA {
 				while( auxiliar!=null && auxiliar.siguiente.clave!=clave ){
 					auxiliar = auxiliar.siguiente;
 				}
+				if(auxiliar!=null && auxiliar.siguiente!=null) {
+					auxiliar.siguiente = auxiliar.siguiente.siguiente;
+				}
 			}
 		}
 
